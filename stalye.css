@@ -1,0 +1,305 @@
+/* Modal shakl (butun sahifani to‘sib turishi uchun) */
+#message-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Yarim shaffof fon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Ichki forma konteyneri */
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+}
+/* Sarlavha (Xabar yuborish) */
+.form-container h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Xabar yozish maydoni */
+textarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+    outline: none;
+}
+
+/* Tugmalar */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Yuborish tugmasi */
+#send-message {
+    background: #f86808;
+    color: white;
+}
+
+#send-message:hover {
+    background: #d75507;
+}
+
+/* Yopish tugmasi */
+#close-form {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    color: black;
+    font-size: 20px;
+    width: auto;
+    cursor: pointer;
+}
+
+/* Chiroyli animatsiya */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Qalam tugmasi (yumaloq shakl) */
+#lunaradio-message-icon {
+    position: fixed;
+    bottom: 40px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    background: blue;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease-in-out;
+	z-index: 9999;
+     /* **Animatsiya** (har 2 soniyada tebratish) */
+	animation: pulse 1.5s infinite;
+}
+/* Ichidagi qalam ikoni */
+#lunaradio-message-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    transition: 0.3s ease-in-out;
+}
+
+/* Tugma hover effekti */
+#lunaradio-message-icon:hover {
+    background: #d75507;
+    transform: scale(1.1) rotate(-10deg); /* Kattalashish + ozgina qiyshayish */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Tugma bosilganda */
+#lunaradio-message-icon:active {
+    transform: scale(0.9);
+}
+/* **Animatsiyalar** */
+
+/* **Pulsatsiya effekti** (katta-kichik) */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+/* Input maydonining dizayni */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Yuborish tugmasi */
+#send-message {
+    background: #f86808;
+    color: white;
+    font-size: 16px;
+}
+
+#send-message:hover {
+    background: #d75507;
+}
+/* 🔥 Media queries - ekran o'lchamiga qarab tugmani o'zgartiramiz */
+
+/* 📌 Katta ekranlarda tugmani kattalashtiramiz */
+@media (min-width: 1024px) {
+    #lunaradio-message-icon {
+        width: 80px;
+        height: 80px;
+    }
+    #lunaradio-message-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* 📌 Planshetlar (o‘rtacha ekran) */
+@media (max-width: 1023px) and (min-width: 600px) {
+    #lunaradio-message-icon {
+        width: 120px;
+        height: 120px;
+	    bottom: 100px
+    }
+    #lunaradio-message-icon svg {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* 📌 Mobil telefonlar (kichik ekranlar) */
+@media (max-width: 599px) {
+    #lunaradio-message-icon {
+        width: 50px;
+        height: 50px;
+    }
+    #lunaradio-message-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+  /* Modal fon */
+     /* Modal oynani umumiy stillari */
+	 #aboutModal {
+        display: none;
+        position: fixed;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(7px);
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Modal kontentni bezash */
+    #aboutModalContent {
+        background: linear-gradient(135deg, #f86808, #d04345);
+        margin: 12% auto;
+        padding: 25px;
+        width: 50%;
+        max-width: 400px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        transform: scale(0.8);
+        opacity: 0;
+        transition: all 0.4s ease-in-out;
+    }
+
+    /* Modal ochilganda animatsiya */
+    #aboutModal.show {
+        display: block;
+    }
+
+    #aboutModal.show #aboutModalContent {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    /* Yopish tugmasi */
+    .closeBtn {
+        color: white;
+        background: rgba(255, 255, 255, 0.2);
+        float: right;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 50%;
+        transition: background 0.3s ease-in-out;
+    }
+
+    .closeBtn:hover {
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Matn stilini yaxshilash */
+    #aboutModalContent h2 {
+        color: white;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    #aboutModalContent p {
+        color: white;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Mobil moslik */
+    @media (max-width: 600px) {
+        #aboutModalContent {
+            width: 80%;
+            padding: 20px;
+        }
+    }
+
+    /* 🔹 Bildirish (notification) */
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 9999;
+    opacity: 0.95;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+}
+
+/* 🔹 Muvaffaqiyatli xabar (yashil) */
+.notification.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* 🔹 Xato xabar (qizil) */
+.notification.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
